@@ -1,0 +1,17 @@
+services:
+  Plex:
+    image: lscr.io/linuxserver/plex:latest
+    network_mode: host
+    runtime: nvidia
+    container_name: Plex
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - VERSION=public
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ${PLEXAPP}:/config
+      - ${MEDIA}:/plexmedia
+      - ${PREROLLS}:/prerolls
+    restart: unless-stopped
