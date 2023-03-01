@@ -12,7 +12,6 @@ To move our server over, we have to prepare our current Windows server to be shu
 Go to your server, then to Settings > Library and make sure all scanning is removed and automatic trash removal is removed
 
 ![How your settings should look like](/images/picture1.png)
-**NEED TO BLUR OUT NAME OF SERVER BEFORE LIVE**
 
 Make sure to save you changes.
 
@@ -49,8 +48,27 @@ While this is taking place, lets start to prepare are new server.
 For this example I'll be using Ubuntu 22.04 Desktop with docker compose.
 The idea here is to start the server up once to populate all of the files, replace the files from the back-up we just created and log into our server with all of our settings.
 
-EXAMPLE OF DOCKER COMPOSE FILE
-You can copy and paste this file and adjust as needed. You can also find more documentation for this container here.
+You can either download the file or copy and paste from below.
+
+[Plex docker compose file example](file:///files/plex/compose.yml)
+'''
+services:
+  Plex:
+    image: lscr.io/linuxserver/plex:latest
+    network_mode: host
+    runtime: nvidia
+    container_name: Plex
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - VERSION=public
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ${PLEXAPP}:/config
+      - ${MEDIA}:/plexmedia
+    restart: unless-stopped
+'''
 
 Before going any further lets review the compose file and make sure we have all the prerequiests needed before running our server.
 
@@ -59,6 +77,7 @@ Its recommended to run the container in host mode over bridge mode. I'll be usin
 newtork_mode: host - This sets the containers network to host mode. Host mode means that the container will be using the host pc's ip address.
 runtime: nvidia - This is used when you want to use a nvidia gpu for hardware transcoding. For intel quicksync see document linked above. (This requires plex pass. This option can be commented out.)
 environment - This section is where we enter different variable to adjust certain settings in the container.
+    
     PUID - The user id that will be assigned for permissions. To keep it simple you want the user id to match your user id that will be launching/starting docker compose. This basically makes the user inside the container have the same permission as the user outside the container.
     
     PGID - The group id that will be assigned for permissions. To keep it simple you want the group id for the user that will be launching/starting docker compose.
@@ -69,7 +88,7 @@ environment - This section is where we enter different variable to adjust certai
 
     NVIDIA_VISIBLE_DEVICES - This is used when you want to use a nvidia gpu for hardware transcoding. (This requires plex pass. This option can be commented out.)
 
-Volumes - This is the section where we assigned the host folders to the container.
+    Volumes - This is the section where we assigned the host folders to the container.
 
     /Path/config:/config - On the left side of the colon, we want to enter the path where we want to store the containers information on the host machine. The right side is the folder path to the folder that will be populated into the host machines folder provide on the left side.
 
@@ -77,7 +96,7 @@ Volumes - This is the section where we assigned the host folders to the containe
 
     /Path/prerolls:/prerolls - Same as above. Mounted my prerolls to /prerolls inside the container. (Optional field, can be commented out.)
 
-restart - This tells the container what to do if the host machine is restarted.
+    restart - This tells the container what to do if the host machine is restarted.
     unless-stopped - This basically means that the container will start on reboot or anytime the host machine goes down, unless the container was stopped by a user.
 
 
