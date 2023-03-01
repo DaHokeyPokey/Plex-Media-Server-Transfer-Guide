@@ -48,8 +48,6 @@ While this is taking place, lets start to prepare are new server.
 For this example I'll be using Ubuntu 22.04 Desktop with docker compose.
 The idea here is to start the server up once to populate all of the files, replace the files from the back-up we just created and log into our server with all of our settings.
 
-You can either download the file or copy and paste from below.
-
 [Plex docker compose file example](/examples/plex/compose.yaml)
 ```
 services:
@@ -98,7 +96,6 @@ environment - This section is where we enter different variable to adjust certai
 
     restart - This tells the container what to do if the host machine is restarted.
     unless-stopped - This basically means that the container will start on reboot or anytime the host machine goes down, unless the container was stopped by a user.
-
 
 Now that we have our docker compose file all mapped out we are almost ready to run it.
 
