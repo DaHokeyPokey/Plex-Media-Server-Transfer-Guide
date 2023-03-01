@@ -12,6 +12,7 @@ To move our server over, we have to prepare our current Windows server to be shu
 Go to your server, then to Settings > Library and make sure all scanning is removed and automatic trash removal is removed
 
 ![How your settings should look like](/images/Picture1.png)
+**NEED TO BLUR OUT NAME OF SERVER BEFORE LIVE**
 
 Make sure to save you changes.
 
