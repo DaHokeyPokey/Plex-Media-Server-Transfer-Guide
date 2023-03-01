@@ -1,23 +1,21 @@
-# Plex Media ServerTransfer Guide
- How to transfer you Plex Media Server from Windows to Linux/Docker
+# **Plex Media Server Transfer Guide**
+## How to transfer you Plex Media Server from Windows to Linux/Docker
 
 
 This guide was created to help anyone that wants to transfer their Plex Media Server from Windows to Linux/Docker and keep all of their invited users,watch history and metadata. This guide will not help you setup docker and docker compose or how to setup up a Linux OS.
 
-The Process:
+### **The Process:**
 
-NOTE: I personally did this with docker, but the process should be the same for any Linux pc.
+Step One
+To move our server over, we have to prepare our current Windows server to be shut down and moved.
 
-First thing we want to do is prepare our current server to be taken down.
+Go to your server, then to Settings > Library and make sure all scanning is removed and automatic trash removal is removed
 
-Go to your server then Settings > Library and make sure all scanning is removed and automatic trash removal is removed
+ADD SCREENSHOT HERE - PICTURE 1
 
-PICTURE ONE - path to settings
-PICTURE TWO - what the settings should look like
+Make sure to save you changes.
 
-Save Changes.
-
-Sign out of plex and shut down the server.
+Now sign out of plex and shut down the server.
 
 Next we should make a backup of our Plex Media Server just in case things go south.
 Go to C:\Users\youreusername\Appdata\Local\Plex Media Server
