@@ -50,7 +50,7 @@ The idea here is to start the server up once to populate all of the files, repla
 
 You can either download the file or copy and paste from below.
 
-[Plex docker compose file example](/examples/plex/compose.yml)
+[Plex docker compose file example](/examples/plex/compose.yaml)
 ```
 services:
   Plex:
