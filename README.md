@@ -50,8 +50,8 @@ The idea here is to start the server up once to populate all of the files, repla
 
 You can either download the file or copy and paste from below.
 
-[Plex docker compose file example](file:///files/plex/compose.yml)
-'''
+[Plex docker compose file example](/files/plex/compose.yml)
+```
 services:
   Plex:
     image: lscr.io/linuxserver/plex:latest
@@ -68,7 +68,7 @@ services:
       - ${PLEXAPP}:/config
       - ${MEDIA}:/plexmedia
     restart: unless-stopped
-'''
+```
 
 Before going any further lets review the compose file and make sure we have all the prerequiests needed before running our server.
 
