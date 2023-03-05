@@ -18,17 +18,19 @@ Now sign out of plex and shut down the server.
 
 Next we should make a backup of our Plex Media Server just in case things go south.
 
-1. Open any folder and type in the the following path
+1. Open any folder and type in the the following path. Replace DaHokeyPokey with your windows login username.
 
 ![Path](/images/picture2.png)
 
 2. You should see the following folders
 
-![Folders](/images/picutre3.png)
+![Folders](/images/picture3.png)
 
 3. Now loof for "Appdata" folder. If you can't find it, this is "Appdata" is a hidden folder. To see hidden folders go to View -> Show -> Hidden Items. After that you should now see Appdata.
 
-![Hidden](/images/picutre4.png)
+![Hidden](/images/picture4.png)
+
+![Appdata](/images/picture5.png)
 
 4. 
 
