@@ -26,13 +26,17 @@ Next we should make a backup of our Plex Media Server just in case things go sou
 
 ![Folders](/images/picture3.png)
 
-3. Now loof for "Appdata" folder. If you can't find it, this is "Appdata" is a hidden folder. To see hidden folders go to View -> Show -> Hidden Items. After that you should now see Appdata.
+3. Now look for "Appdata" folder. If you can't find it, this is "Appdata" is a hidden folder. To see hidden folders go to View -> Show -> Hidden Items. After that you should now see Appdata.
 
 ![Hidden](/images/picture4.png)
 
 ![Appdata](/images/picture5.png)
 
-4. 
+4. Now that we can see Appdata go to Appdata -> Local. You should now see you Plex Media Server folder.
+
+![Plex Media Server Folder](/images/picture6.png)
+
+5. 
 
 If you are not able to see Appdata, this is because it is a hidden file. To see hidden files go to View and select, "Display Hidden Folders"
 and now you should see Appdata along with a couple of new folders/files.
