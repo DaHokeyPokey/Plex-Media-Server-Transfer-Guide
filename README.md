@@ -38,17 +38,6 @@ Next we should make a backup of our Plex Media Server just in case things go sou
 
 5. 
 
-If you are not able to see Appdata, this is because it is a hidden file. To see hidden files go to View and select, "Display Hidden Folders"
-and now you should see Appdata along with a couple of new folders/files.
-
-PICTURE THREE - Path location and folder location
-PICTURE FOUR - Contents inside the folder
-PICTURE FIVE - how to show hidden folders
-
-Your contents inside the folder should roughly match what you see here.
-Depending on the size of your library this folder can be very large.
-To give you a reference, at the time of making this guide, I have ~1100 movies and ~7900 episodes for about ~50GB.
-
 Next thing we want to do is archive this file and make a copy of it and store it somewhere else just in case something breaks, gets corrupted, etc. If you have good internet I would highly suggest uploading it to whatever cloud provided you are using.
 
 For this next part I'll be using 7Zip, you can download it here, but any archiving program should work.
