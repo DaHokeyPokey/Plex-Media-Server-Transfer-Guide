@@ -38,8 +38,6 @@ Next we should make a backup of our Plex Media Server just in case things go sou
 
 5. 
 
-Next thing we want to do is archive this file and make a copy of it and store it somewhere else just in case something breaks, gets corrupted, etc. If you have good internet I would highly suggest uploading it to whatever cloud provided you are using.
-
 For this next part I'll be using 7Zip, you can download it here, but any archiving program should work.
 
 To archive this data lets move back one folder so we can see the parent folder Plex Media Server.
