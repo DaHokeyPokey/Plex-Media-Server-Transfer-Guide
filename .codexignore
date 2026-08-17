@@ -1,0 +1,54 @@
+# LazyTrails context-ignore policy template
+# Target path: .codexignore
+# Purpose: guide agents away from high-cost, generated, secret, binary, and archive paths.
+# This is an agent context policy, not a substitute for .gitignore or security review.
+.git/
+node_modules/
+vendor/
+.venv/
+venv/
+env/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+coverage/
+.next/
+.vite/
+.cache/
+logs/
+*.log
+tmp/
+temp/
+*.sqlite
+*.sqlite3
+*.db
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.pdf
+*.zip
+*.mp4
+.lazytrails/state/archive/
+.lazytrails/sessions/archive/
+# Package reference folders are governed by .lazytrails/load-map.yml, not hard context-ignore entries, so explicit workflow reads remain possible.
+# Lockfile special case: list lockfile paths by default, but do not read full contents unless dependency, supply-chain, vulnerability, reproducibility, installer, package-manager migration, or explicitly requested.
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+poetry.lock
+uv.lock
+Cargo.lock
+go.sum

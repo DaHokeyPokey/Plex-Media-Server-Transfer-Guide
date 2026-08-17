@@ -1,0 +1,82 @@
+
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+
+# Build and release artifacts
+dist/
+build/
+*.zip
+*.tar
+*.gz
+*.sha256
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# Editor and local machine files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local Codex agent generated output
+.lazytrails/output/
+
+# Local Codex agent instructions
+AGENTS.md
+
+# Local LazyTrails planning and session artifacts
+.lazytrails/design-doc.md
+.lazytrails/repo-map.md
+.lazytrails/existing-repo-assessment.md
+.lazytrails/existing-repo-risk-audit.md
+.lazytrails/legacy-modernization-plan.md
+.lazytrails/work-intake.md
+.lazytrails/implementation-plan.md
+.lazytrails/execution-plan.md
+.lazytrails/pr_summary.md
+.lazytrails/state/workflow-state.md
+.lazytrails/state/context-scope-changes.md
+.lazytrails/sessions/
+.lazytrails/*
+.serena/*
+prompts/*
+# LazyTrails source-maintenance release artifacts
+dist/
+build/
+*.zip
+*.tar
+*.gz
+*.sha256
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

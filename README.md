@@ -2,9 +2,9 @@
 
 ## How to transfer your Plex Media Server from Windows to Linux/Docker
 
-This guide was created to help anyone that wants to transfer their Plex Media Server from Windows to Linux/Docker and keep as much of their existing server as possible, including invited users, watch history and metadata.
+This guide was created to help anyone that wants to transfer their Plex Media Server from Windows to Linux/Docker and preserve as much existing server data as practical, such as watch history and metadata.
 
-> **Important:** Moving Plex from Windows to Linux/Docker is not always perfect. This guide is meant to help preserve everything, but you should still make a full backup before doing anything.
+> **Important:** A Windows-to-Linux/Docker move is cross-platform and best effort. Plex's migration instructions are designed for same-OS moves; cross-OS moves are not officially supported or covered. Preferences and shared-library access may not transfer. Make a full backup before doing anything.
 
 This guide will not help you set up Docker, Docker Compose, or how to set up a Linux OS.
 
@@ -26,7 +26,9 @@ Make sure all scanning is turned off and automatic trash removal is turned off.
 
 Make sure to save your changes.
 
-Now sign out of Plex and shut down the server.
+Before stopping the source server, securely record or export the Windows registry values needed later in this guide. Do not sign out of Plex on the source server. If sign-out is needed, do it on the destination server after it is installed.
+
+Then stop Plex Media Server on the source server and make the backup. Keep the source server and backup unchanged until the destination server has been fully verified.
 
 ---
 
@@ -407,15 +409,21 @@ You should see the Plex container up and running.
 
 ## **Check the Config Folder**
 
-Next lets make sure the folders populated in the correct location/as intended.
+Next, make sure Plex created its data directory below the `/config` mount.
 
-One thing we want to make sure populated in the config folder is:
+For this LinuxServer container setup, `Preferences.xml` should be here:
 
 ```text
-Preferences.xml
+/config/Library/Application Support/Plex Media Server/Preferences.xml
 ```
 
-This is very important as this is where we have to enter all the information we need to make sure we save our invited users and server identity.
+With this guide's `${PLEXAPP}:/config` mapping, host path is:
+
+```text
+${PLEXAPP}/Library/Application Support/Plex Media Server/Preferences.xml
+```
+
+This is important because it contains server identity and settings used later in migration.
 
 If everything is where you want, lets go ahead and stop the container.
 
@@ -441,7 +449,19 @@ Move your zipped file from your Windows machine to your Linux machine.
 
 Next we want to unzip/extract this archive.
 
-Now we are going to copy and paste all of the files and folders from the archive file to the config folder.
+Copy contents of the Windows `Plex Media Server` backup into this Linux host directory:
+
+```text
+${PLEXAPP}/Library/Application Support/Plex Media Server/
+```
+
+This maps to this container directory:
+
+```text
+/config/Library/Application Support/Plex Media Server/
+```
+
+Do not copy the backup directly into `${PLEXAPP}`. That is the `/config` mount root, not Plex's data directory.
 
 You'll be asked if you want to merge, replace, or rename the files.
 
@@ -510,6 +530,8 @@ Now that we have a backup, open `Preferences.xml` in whatever text editor you ar
 ## **Get the Windows Registry Information**
 
 The information that we need to enter in the XML file is located in the Windows Registry.
+
+Use values you securely recorded or exported from the source server before it was stopped. Do not change or reset the source server until the destination server has been verified.
 
 To get the information we need, head over to the Windows PC.
 
@@ -654,8 +676,8 @@ Before turning automatic scanning or automatic trash removal back on, verify the
 * Plex opens successfully at `http://HOST-IP:32400/web`
 * Your libraries are visible
 * Your media is available from the new Linux/Docker paths
-* Watch history is still present
-* Invited users still show up
+* Verify watch history, metadata, and preferences you rely on
+* Verify invited users can access shared libraries; re-grant access if needed
 * Remote access is working, if you use it
 * Hardware transcoding works, if configured
 * Old Windows library paths have not been removed until the new paths are confirmed working

@@ -8,10 +8,9 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
-      - VERSION=public
+      - VERSION=docker
       - NVIDIA_VISIBLE_DEVICES=all
     volumes:
       - ${PLEXAPP}:/config
       - ${MEDIA}:/plexmedia
-      - ${PREROLLS}:/prerolls
     restart: unless-stopped
