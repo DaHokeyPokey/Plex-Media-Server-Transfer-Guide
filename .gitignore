@@ -68,6 +68,7 @@ AGENTS.md
 .lazytrails/*
 .serena/*
 prompts/*
+graphify-out/*
 # LazyTrails source-maintenance release artifacts
 dist/
 build/
